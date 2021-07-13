@@ -14,8 +14,7 @@ import numpy as np
 # launch chrome browser
 driver = webdriver.Chrome()
 
-master_url = "https://www.wantedly.com/projects?type=popular&page=1&occupation_types%5B%5D=jp__engineering&hiring_types%5B%5D=mid_career&fields%5B%5D=jp__web_engineer&locations%5B%5D=tokyo&company_tags%5B%5D=techcrunch&keywords%5B%5D=React&keywords%5B%5D=TypeScript"
-# master_url = "https://www.wantedly.com/projects?type=popular&page=53&occupation_types%5B%5D=jp__engineering&hiring_types%5B%5D=mid_career&fields%5B%5D=jp__web_engineer&locations%5B%5D=tokyo&company_tags%5B%5D=techcrunch&keywords%5B%5D=React&keywords%5B%5D=TypeScript"
+master_url = "~~~~~"
 urls = []
 
 driver.get(master_url)
@@ -28,7 +27,7 @@ while True:
     projects_elem = bs.select('[class="projects-index-list"]')
 
     for link_elem in projects_elem[0].find_all(class_="project-title"):
-        link = "https://www.wantedly.com/" + link_elem.find("a").get('href')
+        link = "https://www.~~~~~~.com/" + link_elem.find("a").get('href')
         urls.append(link)
 
     # 次のリンクを取得しページ遷移
@@ -78,6 +77,6 @@ for company in companies:
     df = df.append(company, ignore_index=True)
 print(df)
 
-df.to_excel("wantedly会社リスト.xlsx")
+df.to_excel("会社リスト.xlsx")
 
 driver.quit()
